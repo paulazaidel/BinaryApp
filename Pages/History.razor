@@ -1,0 +1,32 @@
+@page "/history"
+
+<PageTitle>BinaryApp - History</PageTitle>
+
+<h1>History</h1>
+
+@if (_historical == null || _historical.Length == 0)
+{
+    <p>
+        <em>No values found...</em>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th aria-label="To Convert">To Convert</th>
+            <th aria-label="Converted">Converted</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach ((var textToConvert, var convertedText) in _historical)
+        {
+            <tr>
+                <td>@textToConvert</td>
+                <td>@convertedText</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
